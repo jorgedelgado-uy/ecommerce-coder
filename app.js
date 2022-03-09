@@ -9,6 +9,9 @@ app.set('port', process.env.port || 8080);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//Routes
+app.use('/api/products', require('./routes/product.route'));
+
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
