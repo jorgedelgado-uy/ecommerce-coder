@@ -9,7 +9,7 @@ router.get('/', (req, res, next)=>{
 
 router.get('/:id', (req, res, next)=>{
     let product = container.getById(req.params.id);
-    if (product == null)
+    if (product.length == 0)
         res.status(404).json(({error: 'Product Not Found'}));
     else   
         res.json(product);
@@ -23,13 +23,13 @@ router.post('/', (req, res, next)=>{
 
 router.put('/:id', (req, res, next)=>{
     let {tittle, price, thumbnail} = req.body;
-    container.modify({tittle, price, thumbnail}, req.params.id);
-    res.send('Product has been changed');
+    let response = container.modify({tittle, price, thumbnail}, req.params.id);
+    res.send(response);
 });
 
 router.delete('/:id', (req, res, next)=>{
     let products = container.delete(req.params.id);
-    if (products.lengh > 0)
+    if (products != undefined)
         res.send('Product has been deleted');
     else
         res.status(404).send('Product not found');

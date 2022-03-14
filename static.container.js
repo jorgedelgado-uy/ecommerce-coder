@@ -16,9 +16,11 @@ module.exports = class Container{
     }
 
     static modify(object, id){
-        let index = this.container.indexOf(object => object.id == id);
+        let index = this.container.findIndex(object => object.id == id);
+        if (index == -1)
+            return {error: 'Product not found'}
         object.id = id;
-        this.container = this.container.splice(index, 1, object);
+        this.container.splice(index, 1, object);
         return this.container;
     }
 
@@ -36,7 +38,7 @@ module.exports = class Container{
     static delete(id){
         let index = this.container.findIndex(object => object.id == id);
         if (index >= 0){
-            this.container = this.container.splice(index, 1);
+            this.container.splice(index, 1);
             return this.container;
         }       
     }
