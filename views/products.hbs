@@ -1,0 +1,13 @@
+<div class="item-container">
+    {{#each products}}
+    <div class="item-card">
+        <h2>Product</h2>
+        <h3>Title: {{title}}</h3>
+        <h3>Price: {{price}}</h3>
+        <h3>Thumbnail: {{thumbnail}}</h3>
+        </div>
+    {{/each}}
+</div>
+<form action = "/" method = "get">
+        <input style="margin-top: 10px;" type="submit" value="Enter product"/>
+</form>

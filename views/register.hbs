@@ -1,0 +1,31 @@
+{{#if error}}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  {{error}}
+</div>
+{{/if}}
+
+<div class="main-container">
+    <div class="form-container">
+        <div class="form-body">                
+            <h2 class="title">Ingresar</h2>
+            <form action="/products" class="the-form" method="POST">
+
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" placeholder="Enter title" value={{title}}>
+
+                <label for="price">Price</label>
+                <input type="text" name="price" id="price" placeholder="Enter price" value={{price}}>
+
+                <label for="thumbnail">Thumbnail</label>
+                <input type="text" name="thumbnail" id="thumbnail" placeholder="Enter thumbnail" value={{thumbnail}}>
+
+                <input type="submit" value="Add Product">
+
+            </form>
+        </div>
+    </div>
+    <form action = "/products" method = "get">
+        <input style="margin-top: 10px;" type="submit" value="All Products"/>
+    </form>
+</div>

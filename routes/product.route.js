@@ -16,14 +16,17 @@ router.get('/:id', (req, res, next)=>{
 });
 
 router.post('/', (req, res, next)=>{
-    let {tittle, price, thumbnail} = req.body;
-    let product = container.save({tittle, price, thumbnail});
+    let {title, price, thumbnail} = req.body;
+    if (!title || !price || !thumbnail){
+        throw new Error("Los datos no con correctos")
+    }
+    let product = container.save({title, price, thumbnail});
     res.json(product);
 });
 
 router.put('/:id', (req, res, next)=>{
-    let {tittle, price, thumbnail} = req.body;
-    let response = container.modify({tittle, price, thumbnail}, req.params.id);
+    let {title, price, thumbnail} = req.body;
+    let response = container.modify({title, price, thumbnail}, req.params.id);
     res.send(response);
 });
 
