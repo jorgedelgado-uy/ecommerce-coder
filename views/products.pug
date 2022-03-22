@@ -3,11 +3,14 @@ html
         link(rel="stylesheet" href="/main.css")
         title=Register
     body
-        div.item-container
-            each product in products
-                div.item-card
-                    h2=product.title 
-                    h2=product.price 
-                    img(src=product.thumbnail)
+        -if (typeof(error) !== 'undefined') 
+            h1=error
+        -if (typeof(products) !== 'undefined') 
+            div.item-container
+                each product in products
+                    div.item-card
+                        h2=product.title 
+                        h2=product.price 
+                        img(src=product.thumbnail)
         form(action="/" method="GET")
             input(style="margin-top: 10px;" type="submit" value="Enter product")  
