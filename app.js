@@ -5,6 +5,9 @@ const hbs = require('express-handlebars');
 const container = require('./static.container');
 const { render } = require('express/lib/response');
 
+//PUG
+const pug = require('pug');
+
 //Global variables
 app.set('port', process.env.port || 8080);
 app.set('views', path.join(__dirname, 'views'));
@@ -13,12 +16,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.engine('.hbs', hbs.engine({
+/*app.engine('.hbs', hbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     extname: '.hbs'
-}));
-app.set('view engine', '.hbs');;
+}));*/
+//app.set('view engine', '.hbs');
+
+//PUG
+app.set('view engine', 'pug');
 
 //Routes
 app.use('/api/products', require('./routes/product.route'));

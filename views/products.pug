@@ -1,0 +1,13 @@
+html
+    head
+        link(rel="stylesheet" href="/main.css")
+        title=Register
+    body
+        div.item-container
+            each product in products
+                div.item-card
+                    h2=product.title 
+                    h2=product.price 
+                    h2=product.thumbnail
+        form(action="/" method="GET")
+            input(style="margin-top: 10px;" type="submit" value="Enter product")  

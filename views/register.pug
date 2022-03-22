@@ -1,0 +1,24 @@
+html
+    head
+        link(rel="stylesheet" href="/main.css")
+        title=Register
+    body
+        div
+            h2=Ingresar
+            form(action='/products' method='POST')
+
+                label(for='title')=Title
+                input(type='text' name='title' id='title' placeholder='Enter title')
+
+                label(for='price')=Price 
+                input(type="text" name="price" id="price" placeholder="Enter price")
+
+                label(for="thumbnail")=Thumbnail
+                input(type="text" name="thumbnail" id="thumbnail" placeholder="Enter thumbnail") 
+
+                input(type="submit" value="Add Product")
+        
+        form(action="/products" method="GET") 
+
+            input(style="margin-top: 10px;" type="submit" value="All Products")
+
