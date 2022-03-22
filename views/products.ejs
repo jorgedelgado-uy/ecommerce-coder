@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="item-container">
-        <% if (product) { %>
+        <% if (locals.error) { %>
+            <h1><%=error%></h1>
+        <% } %>
+        <% if (locals.products) { %>
             <% for(let i=0; i<products.length; i++) {%>
                 <div class="item-card">
                     <h2>Product</h2>
@@ -18,7 +21,7 @@
                     <img src=<%=products[i].thumbnail%> />
                 </div>
             <% } %>
-        <% } %>       
+        <% } %>      
     </div>
     <form action = "/" method = "get">
         <input style="margin-top: 10px;" type="submit" value="Enter product"/>
