@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="form-container">
+            <div class="form-body">                
+                <h2 class="title">Ingresar</h2>
+                <form action="/products" class="the-form" method="POST">
+    
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter title">
+    
+                    <label for="price">Price</label>
+                    <input type="text" name="price" id="price" placeholder="Enter price">
+    
+                    <label for="thumbnail">Thumbnail</label>
+                    <input type="text" name="thumbnail" id="thumbnail" placeholder="Enter thumbnail">
+    
+                    <input type="submit" value="Add Product">
+    
+                </form>
+            </div>
+        </div>
+        <form action = "/products" method = "get">
+            <input style="margin-top: 10px;" type="submit" value="All Products"/>
+        </form>
+    </div>
+</body>
+</html>

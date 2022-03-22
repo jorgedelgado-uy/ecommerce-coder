@@ -8,6 +8,9 @@ const { render } = require('express/lib/response');
 //PUG
 const pug = require('pug');
 
+//EJS
+const ejs = require('ejs');
+
 //Global variables
 app.set('port', process.env.port || 8080);
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 //app.set('view engine', '.hbs');
 
 //PUG
-app.set('view engine', 'pug');
+//app.set('view engine', 'pug');
+
+//EJS
+app.set('view engine', 'ejs')
 
 //Routes
 app.use('/api/products', require('./routes/product.route'));

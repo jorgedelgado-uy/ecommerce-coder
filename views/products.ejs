@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" />
+    <title>Ecommerce</title>
+</head>
+<body>
+    <div class="item-container">
+        <% for(let i=0; i<products.length; i++) {%>
+            <div class="item-card">
+                <h2>Product</h2>
+                <h3>Title: <%=products[i].title%></h3>
+                <h3>Price: <%=products[i].price%></h3>
+                <h3>Thumbnail: <%=products[i].thumbnail%></h3>
+            </div>
+        <% } %>
+    </div>
+    <form action = "/" method = "get">
+        <input style="margin-top: 10px;" type="submit" value="Enter product"/>
+    </form>
+</body>
+</html>
