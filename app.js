@@ -19,15 +19,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/*app.engine('.hbs', hbs.engine({
+app.engine('.hbs', hbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     extname: '.hbs'
 }));
-app.set('view engine', '.hbs');*/
+app.set('view engine', '.hbs');
 
 //PUG
-app.set('view engine', 'pug');
+//app.set('view engine', 'pug');
 
 //EJS
 //app.set('view engine', 'ejs');
@@ -52,7 +52,10 @@ app.get('/', (req, res, next)=>{
 
 app.get('/products', (req, res, next)=> {
     let products = container.getAll();
-    res.render('products', {products});
+    if (products.length > 0)
+        res.render('products', {products});
+    else
+        res.render('products', {error: 'No items available'});
 })
 
 app.post('/products', (req, res, next)=>{
