@@ -13,7 +13,7 @@ const ejs = require('ejs');
 
 //Global variables
 app.set('port', process.env.port || 8080);
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/hbs'));
 
 //Middleware
 app.use(express.json());
@@ -24,10 +24,10 @@ app.engine('.hbs', hbs.engine({
     layoutsDir: path.join(app.get('views'), 'layouts'),
     extname: '.hbs'
 }));
-//app.set('view engine', '.hbs');
+app.set('view engine', '.hbs');
 
 //PUG
-app.set('view engine', 'pug');
+//app.set('view engine', 'pug');
 
 //EJS
 //app.set('view engine', 'ejs');
