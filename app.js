@@ -23,14 +23,14 @@ app.use(express.urlencoded({ extended: true }));
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     extname: '.hbs'
-}));*/
-//app.set('view engine', '.hbs');
+}));
+app.set('view engine', '.hbs');*/
 
 //PUG
-//app.set('view engine', 'pug');
+app.set('view engine', 'pug');
 
 //EJS
-app.set('view engine', 'ejs')
+//app.set('view engine', 'ejs');
 
 //Routes
 app.use('/api/products', require('./routes/product.route'));

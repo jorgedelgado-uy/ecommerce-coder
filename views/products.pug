@@ -8,6 +8,6 @@ html
                 div.item-card
                     h2=product.title 
                     h2=product.price 
-                    h2=product.thumbnail
+                    img(src=product.thumbnail)
         form(action="/" method="GET")
             input(style="margin-top: 10px;" type="submit" value="Enter product")  
