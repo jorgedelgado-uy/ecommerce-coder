@@ -4,6 +4,11 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const container = require('./static.container');
 const { render } = require('express/lib/response');
+const { Server: SocketIOSeever} = require('socket.io');
+const { Server: HttpServer} = require('http');
+
+const server = new HttpServer(app);
+const socket = new SocketIOSeever(server);
 
 //PUG
 const pug = require('pug');
@@ -26,6 +31,15 @@ app.engine('.hbs', hbs.engine({
 }));
 app.set('view engine', '.hbs');
 
+server.listen(app.get('port'), ()=>{
+    console.log('Server listening on port 8080');
+})
+
+socket.on('connection', ()=>{
+    console.log('Connection Stablished');
+    socket.sockets.emit('showProducts', container.getAll());
+})
+
 //PUG
 //app.set('view engine', 'pug');
 
@@ -37,13 +51,6 @@ app.use('/api/products', require('./routes/product.route'));
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.listen(app.get('port'), error =>{
-    if (error)
-        throw new Error(`${error.message}`);
-    else
-        console.log(`Listening through port ${app.get('port')}`);
-});
 
 //noREST routes
 app.get('/', (req, res, next)=>{
